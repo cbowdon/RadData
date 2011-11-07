@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83054355145D677100E8F8F9 /* Progeny.h in Headers */ = {isa = PBXBuildFile; fileRef = 83054353145D677100E8F8F9 /* Progeny.h */; };
+		83054356145D677100E8F8F9 /* Progeny.m in Sources */ = {isa = PBXBuildFile; fileRef = 83054354145D677100E8F8F9 /* Progeny.m */; };
+		83054359145D80D300E8F8F9 /* Extract.h in Headers */ = {isa = PBXBuildFile; fileRef = 83054357145D80D300E8F8F9 /* Extract.h */; };
+		8305435A145D80D300E8F8F9 /* Extract.m in Sources */ = {isa = PBXBuildFile; fileRef = 83054358145D80D300E8F8F9 /* Extract.m */; };
+		835B7BF6145C5A1700AA8CA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835B7BF5145C5A1700AA8CA5 /* Foundation.framework */; };
+		835B7BFC145C5A1700AA8CA5 /* RadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 835B7BFB145C5A1700AA8CA5 /* RadData.m */; };
+		835B7C04145C5A1700AA8CA5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835B7C03145C5A1700AA8CA5 /* SenTestingKit.framework */; };
+		835B7C06145C5A1700AA8CA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835B7C05145C5A1700AA8CA5 /* UIKit.framework */; };
+		835B7C07145C5A1700AA8CA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835B7BF5145C5A1700AA8CA5 /* Foundation.framework */; };
+		835B7C0A145C5A1700AA8CA5 /* libRadData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 835B7BF2145C5A1700AA8CA5 /* libRadData.a */; };
+		835B7C10145C5A1700AA8CA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 835B7C0E145C5A1700AA8CA5 /* InfoPlist.strings */; };
+		835B7C13145C5A1700AA8CA5 /* RadDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 835B7C12145C5A1700AA8CA5 /* RadDataTests.m */; };
+		835B7C22145CA58500AA8CA5 /* Radioisotope.h in Headers */ = {isa = PBXBuildFile; fileRef = 835B7C20145CA58500AA8CA5 /* Radioisotope.h */; };
+		835B7C23145CA58500AA8CA5 /* Radioisotope.m in Sources */ = {isa = PBXBuildFile; fileRef = 835B7C21145CA58500AA8CA5 /* Radioisotope.m */; };
+		83FE143A14686CF000D5C739 /* DiscreteParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FE143814686CF000D5C739 /* DiscreteParticle.h */; };
+		83FE143B14686CF000D5C739 /* DiscreteParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FE143914686CF000D5C739 /* DiscreteParticle.m */; };
+		83FE143F146873D900D5C739 /* ContinuousParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FE143D146873D900D5C739 /* ContinuousParticle.h */; };
+		83FE1440146873D900D5C739 /* ContinuousParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FE143E146873D900D5C739 /* ContinuousParticle.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		835B7C08145C5A1700AA8CA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 835B7BE9145C5A1600AA8CA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 835B7BF1145C5A1700AA8CA5;
+			remoteInfo = RadData;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		83054353145D677100E8F8F9 /* Progeny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Progeny.h; sourceTree = "<group>"; };
+		83054354145D677100E8F8F9 /* Progeny.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Progeny.m; sourceTree = "<group>"; };
+		83054357145D80D300E8F8F9 /* Extract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Extract.h; sourceTree = "<group>"; };
+		83054358145D80D300E8F8F9 /* Extract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Extract.m; sourceTree = "<group>"; };
+		8305435B145D89B300E8F8F9 /* ALPHA.REC */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALPHA.REC; path = ../ALPHA.REC; sourceTree = "<group>"; };
+		8305435C145D89B300E8F8F9 /* BETAS.REC */ = {isa = PBXFileReference; lastKnownFileType = file; name = BETAS.REC; path = ../BETAS.REC; sourceTree = "<group>"; };
+		8305435D145D89B300E8F8F9 /* ELECTRON.REC */ = {isa = PBXFileReference; lastKnownFileType = file; name = ELECTRON.REC; path = ../ELECTRON.REC; sourceTree = "<group>"; };
+		8305435E145D89B300E8F8F9 /* PHOTONS.REC */ = {isa = PBXFileReference; lastKnownFileType = file; name = PHOTONS.REC; path = ../PHOTONS.REC; sourceTree = "<group>"; };
+		8305435F145D89B300E8F8F9 /* POSITRON.REC */ = {isa = PBXFileReference; lastKnownFileType = file; name = POSITRON.REC; path = ../POSITRON.REC; sourceTree = "<group>"; };
+		83054360145D89B300E8F8F9 /* PROGENY.REC */ = {isa = PBXFileReference; lastKnownFileType = file; name = PROGENY.REC; path = ../PROGENY.REC; sourceTree = "<group>"; };
+		835B7BF2145C5A1700AA8CA5 /* libRadData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRadData.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		835B7BF5145C5A1700AA8CA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		835B7BF9145C5A1700AA8CA5 /* RadData-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RadData-Prefix.pch"; sourceTree = "<group>"; };
+		835B7BFA145C5A1700AA8CA5 /* RadData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadData.h; sourceTree = "<group>"; };
+		835B7BFB145C5A1700AA8CA5 /* RadData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadData.m; sourceTree = "<group>"; };
+		835B7C02145C5A1700AA8CA5 /* RadDataTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadDataTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		835B7C03145C5A1700AA8CA5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		835B7C05145C5A1700AA8CA5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		835B7C0D145C5A1700AA8CA5 /* RadDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RadDataTests-Info.plist"; sourceTree = "<group>"; };
+		835B7C0F145C5A1700AA8CA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		835B7C11145C5A1700AA8CA5 /* RadDataTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadDataTests.h; sourceTree = "<group>"; };
+		835B7C12145C5A1700AA8CA5 /* RadDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadDataTests.m; sourceTree = "<group>"; };
+		835B7C1C145C5A3900AA8CA5 /* NUCLIDES.REC */ = {isa = PBXFileReference; lastKnownFileType = file; name = NUCLIDES.REC; path = ../NUCLIDES.REC; sourceTree = "<group>"; };
+		835B7C20145CA58500AA8CA5 /* Radioisotope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Radioisotope.h; sourceTree = "<group>"; };
+		835B7C21145CA58500AA8CA5 /* Radioisotope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Radioisotope.m; sourceTree = "<group>"; };
+		83FE143814686CF000D5C739 /* DiscreteParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscreteParticle.h; sourceTree = "<group>"; };
+		83FE143914686CF000D5C739 /* DiscreteParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscreteParticle.m; sourceTree = "<group>"; };
+		83FE143D146873D900D5C739 /* ContinuousParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContinuousParticle.h; sourceTree = "<group>"; };
+		83FE143E146873D900D5C739 /* ContinuousParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContinuousParticle.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		835B7BEF145C5A1700AA8CA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				835B7BF6145C5A1700AA8CA5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		835B7BFE145C5A1700AA8CA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				835B7C04145C5A1700AA8CA5 /* SenTestingKit.framework in Frameworks */,
+				835B7C06145C5A1700AA8CA5 /* UIKit.framework in Frameworks */,
+				835B7C07145C5A1700AA8CA5 /* Foundation.framework in Frameworks */,
+				835B7C0A145C5A1700AA8CA5 /* libRadData.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		835B7BE7145C5A1600AA8CA5 = {
+			isa = PBXGroup;
+			children = (
+				835B7BF7145C5A1700AA8CA5 /* RadData */,
+				835B7C0B145C5A1700AA8CA5 /* RadDataTests */,
+				835B7BF4145C5A1700AA8CA5 /* Frameworks */,
+				835B7BF3145C5A1700AA8CA5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		835B7BF3145C5A1700AA8CA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				835B7BF2145C5A1700AA8CA5 /* libRadData.a */,
+				835B7C02145C5A1700AA8CA5 /* RadDataTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		835B7BF4145C5A1700AA8CA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				835B7BF5145C5A1700AA8CA5 /* Foundation.framework */,
+				835B7C03145C5A1700AA8CA5 /* SenTestingKit.framework */,
+				835B7C05145C5A1700AA8CA5 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		835B7BF7145C5A1700AA8CA5 /* RadData */ = {
+			isa = PBXGroup;
+			children = (
+				83054357145D80D300E8F8F9 /* Extract.h */,
+				83054358145D80D300E8F8F9 /* Extract.m */,
+				835B7BFA145C5A1700AA8CA5 /* RadData.h */,
+				835B7BFB145C5A1700AA8CA5 /* RadData.m */,
+				835B7C20145CA58500AA8CA5 /* Radioisotope.h */,
+				835B7C21145CA58500AA8CA5 /* Radioisotope.m */,
+				83054353145D677100E8F8F9 /* Progeny.h */,
+				83054354145D677100E8F8F9 /* Progeny.m */,
+				83FE143D146873D900D5C739 /* ContinuousParticle.h */,
+				83FE143E146873D900D5C739 /* ContinuousParticle.m */,
+				83FE143814686CF000D5C739 /* DiscreteParticle.h */,
+				83FE143914686CF000D5C739 /* DiscreteParticle.m */,
+				835B7BF8145C5A1700AA8CA5 /* Supporting Files */,
+			);
+			path = RadData;
+			sourceTree = "<group>";
+		};
+		835B7BF8145C5A1700AA8CA5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				835B7C1C145C5A3900AA8CA5 /* NUCLIDES.REC */,
+				8305435B145D89B300E8F8F9 /* ALPHA.REC */,
+				8305435C145D89B300E8F8F9 /* BETAS.REC */,
+				8305435D145D89B300E8F8F9 /* ELECTRON.REC */,
+				8305435E145D89B300E8F8F9 /* PHOTONS.REC */,
+				8305435F145D89B300E8F8F9 /* POSITRON.REC */,
+				83054360145D89B300E8F8F9 /* PROGENY.REC */,
+				835B7BF9145C5A1700AA8CA5 /* RadData-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		835B7C0B145C5A1700AA8CA5 /* RadDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				835B7C11145C5A1700AA8CA5 /* RadDataTests.h */,
+				835B7C12145C5A1700AA8CA5 /* RadDataTests.m */,
+				835B7C0C145C5A1700AA8CA5 /* Supporting Files */,
+			);
+			path = RadDataTests;
+			sourceTree = "<group>";
+		};
+		835B7C0C145C5A1700AA8CA5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				835B7C0D145C5A1700AA8CA5 /* RadDataTests-Info.plist */,
+				835B7C0E145C5A1700AA8CA5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		835B7BF0145C5A1700AA8CA5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				835B7C22145CA58500AA8CA5 /* Radioisotope.h in Headers */,
+				83054355145D677100E8F8F9 /* Progeny.h in Headers */,
+				83054359145D80D300E8F8F9 /* Extract.h in Headers */,
+				83FE143A14686CF000D5C739 /* DiscreteParticle.h in Headers */,
+				83FE143F146873D900D5C739 /* ContinuousParticle.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		835B7BF1145C5A1700AA8CA5 /* RadData */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 835B7C16145C5A1700AA8CA5 /* Build configuration list for PBXNativeTarget "RadData" */;
+			buildPhases = (
+				835B7BEE145C5A1700AA8CA5 /* Sources */,
+				835B7BEF145C5A1700AA8CA5 /* Frameworks */,
+				835B7BF0145C5A1700AA8CA5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RadData;
+			productName = RadData;
+			productReference = 835B7BF2145C5A1700AA8CA5 /* libRadData.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		835B7C01145C5A1700AA8CA5 /* RadDataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 835B7C19145C5A1700AA8CA5 /* Build configuration list for PBXNativeTarget "RadDataTests" */;
+			buildPhases = (
+				835B7BFD145C5A1700AA8CA5 /* Sources */,
+				835B7BFE145C5A1700AA8CA5 /* Frameworks */,
+				835B7BFF145C5A1700AA8CA5 /* Resources */,
+				835B7C00145C5A1700AA8CA5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				835B7C09145C5A1700AA8CA5 /* PBXTargetDependency */,
+			);
+			name = RadDataTests;
+			productName = RadDataTests;
+			productReference = 835B7C02145C5A1700AA8CA5 /* RadDataTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		835B7BE9145C5A1600AA8CA5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 835B7BEC145C5A1600AA8CA5 /* Build configuration list for PBXProject "RadData" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 835B7BE7145C5A1600AA8CA5;
+			productRefGroup = 835B7BF3145C5A1700AA8CA5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				835B7BF1145C5A1700AA8CA5 /* RadData */,
+				835B7C01145C5A1700AA8CA5 /* RadDataTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		835B7BFF145C5A1700AA8CA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				835B7C10145C5A1700AA8CA5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		835B7C00145C5A1700AA8CA5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		835B7BEE145C5A1700AA8CA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				835B7BFC145C5A1700AA8CA5 /* RadData.m in Sources */,
+				835B7C23145CA58500AA8CA5 /* Radioisotope.m in Sources */,
+				83054356145D677100E8F8F9 /* Progeny.m in Sources */,
+				8305435A145D80D300E8F8F9 /* Extract.m in Sources */,
+				83FE143B14686CF000D5C739 /* DiscreteParticle.m in Sources */,
+				83FE1440146873D900D5C739 /* ContinuousParticle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		835B7BFD145C5A1700AA8CA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				835B7C13145C5A1700AA8CA5 /* RadDataTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		835B7C09145C5A1700AA8CA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 835B7BF1145C5A1700AA8CA5 /* RadData */;
+			targetProxy = 835B7C08145C5A1700AA8CA5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		835B7C0E145C5A1700AA8CA5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				835B7C0F145C5A1700AA8CA5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		835B7C14145C5A1700AA8CA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		835B7C15145C5A1700AA8CA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		835B7C17145C5A1700AA8CA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/RadData.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RadData/RadData-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		835B7C18145C5A1700AA8CA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/RadData.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RadData/RadData-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		835B7C1A145C5A1700AA8CA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RadData/RadData-Prefix.pch";
+				INFOPLIST_FILE = "RadDataTests/RadDataTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		835B7C1B145C5A1700AA8CA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RadData/RadData-Prefix.pch";
+				INFOPLIST_FILE = "RadDataTests/RadDataTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		835B7BEC145C5A1600AA8CA5 /* Build configuration list for PBXProject "RadData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				835B7C14145C5A1700AA8CA5 /* Debug */,
+				835B7C15145C5A1700AA8CA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		835B7C16145C5A1700AA8CA5 /* Build configuration list for PBXNativeTarget "RadData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				835B7C17145C5A1700AA8CA5 /* Debug */,
+				835B7C18145C5A1700AA8CA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		835B7C19145C5A1700AA8CA5 /* Build configuration list for PBXNativeTarget "RadDataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				835B7C1A145C5A1700AA8CA5 /* Debug */,
+				835B7C1B145C5A1700AA8CA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 835B7BE9145C5A1600AA8CA5 /* Project object */;
+}
