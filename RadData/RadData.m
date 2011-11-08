@@ -123,20 +123,41 @@
 
 -(NSArray*)findIsotopeWithName:(NSString *)name {
 
-	NSPredicate *symbolProper = [NSPredicate predicateWithFormat:@"SELF MATCHES '[A-Za-z]{1,2}.[0-9]{1,3}'"];
+	NSPredicate *symbolProper = [NSPredicate predicateWithFormat:@"SELF MATCHES '[A-Za-z]{1,2}-[0-9]{1,3}'"];
+	NSPredicate *symbolShort = [NSPredicate predicateWithFormat:@"SELF MATCHES '[A-Za-z]{1,2}[0-9]{1,3}'"];
 	NSPredicate *symbolLetters = [NSPredicate predicateWithFormat:@"SELF MATCHES '[A-Za-z]{1,2}'"];
 	NSPredicate *symbolNumbers = [NSPredicate predicateWithFormat:@"SELF MATCHES '[0-9]{1,3}'"];
 
 	NSArray *filteredArray; 
 	NSPredicate *match;
+	NSString *numberString;
 		
 	if ([symbolProper evaluateWithObject:name] == YES) {
-
+		
 		match = [NSPredicate predicateWithFormat:@"name == %@", name];
 		filteredArray =	[self.isotopes filteredArrayUsingPredicate:match];
 		if ([filteredArray count] == 1) {
 			return filteredArray;
 		}
+	} else if ([symbolShort evaluateWithObject:name] == YES) {
+
+		NSScanner *scanner = [NSScanner scannerWithString:name];
+		NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+		
+		// Throw away characters before the first number.
+		[scanner scanUpToCharactersFromSet:numbers intoString:&numberString];
+		
+		// Collect numbers.
+		[scanner scanCharactersFromSet:numbers intoString:&numberString];
+		
+		NSString *shortMatchExpr = [NSString stringWithFormat:@"%c*%@", [[name capitalizedString] characterAtIndex:0], numberString];
+		
+		match = [NSPredicate predicateWithFormat:@"name like %@", shortMatchExpr];		
+		filteredArray =	[self.isotopes filteredArrayUsingPredicate:match];
+		if ([filteredArray count] > 0) {
+			return filteredArray;
+		}
+		
 	} else if ([symbolLetters evaluateWithObject:name] == YES) {		
 
 		NSString *letterMatchExpr = [NSString stringWithFormat:@"%c*", [[name capitalizedString] characterAtIndex:0]];
@@ -147,7 +168,6 @@
 		}		
 	} else if ([symbolNumbers evaluateWithObject:name] == YES) {
 
-		NSString *numberString;
 		NSScanner *scanner = [NSScanner scannerWithString:name];
 		NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
 		

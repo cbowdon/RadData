@@ -164,13 +164,16 @@
 {
 	NSArray *results = [rad findIsotopeWithName:@"Am-241"];
 	STAssertEquals([results count], (uint)1, @"Only one Am-241");	
-	
+
 	Radioisotope *result = [results objectAtIndex:0];
 	STAssertTrue([result.name isEqualToString:@"Am-241"], @"Found Am-241");
 	STAssertEquals(result.nPhotons, (uint)5, @"5 photons for found Am-241");
 	DiscreteParticle *amPho3 = [result.photons objectAtIndex:3];
 	STAssertEqualsWithAccuracy([amPho3.probability doubleValue], 0.359000, 0.00001, @"Am-241 photon probability");
 	STAssertEqualsWithAccuracy([amPho3.energy doubleValue], 0.059537, 0.00001, @"Am-241 photon energy");			
+	
+	results = [rad findIsotopeWithName:@"Am241"];
+	STAssertEquals([results count], (uint)1, @"Only one Am241");	
 	
 	results = [rad findIsotopeWithName:@"x"];
 	STAssertEquals([results count], (uint)12, @"12 isotopes with x in name");
