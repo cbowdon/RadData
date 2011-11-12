@@ -33,7 +33,7 @@
 
 -(void)testLength 
 {
-	STAssertEquals([rad numberOfIsotopes], (uint)497, @"497 nuclides");			
+	STAssertEquals([rad.isotopes count], (uint)497, @"497 nuclides");			
 }
 
 - (void)testName
