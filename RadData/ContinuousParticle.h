@@ -12,11 +12,13 @@
 	NSNumber *probability;
 	NSNumber *energy;
 	NSNumber *maxEnergy;
+	NSString *_stringValue;
 }
 
-@property (readonly, strong) NSNumber* probability;
-@property (readonly, strong) NSNumber* energy;
-@property (readonly, strong) NSNumber* maxEnergy;
+@property (readonly, strong) NSNumber *probability;
+@property (readonly, strong) NSNumber *energy;
+@property (readonly, strong) NSNumber *maxEnergy;
+@property (readonly, strong) NSString *stringValue;
 
 -(id)initWithProbability:(NSNumber*)prob energy:(NSNumber*)en andMaxEnergy:(NSNumber*)maxEn;
 

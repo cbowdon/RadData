@@ -44,7 +44,9 @@
 	
 	NSUInteger *nPhotons;
 	NSUInteger photonStart;
-	NSArray *_photons;	
+	NSArray *_photons;
+	
+	NSDictionary *_contents;
 }
 
 @property (nonatomic, weak) NSArray *collection;
@@ -73,12 +75,16 @@
 @property NSUInteger nPhotons;
 @property NSUInteger photonStart;
 
+@property (nonatomic, readonly) NSDictionary *contents;
+
 -(NSArray*)progeny;
 -(NSArray*)alphas;
 -(NSArray*)betas;
 -(NSArray*)positrons;
 -(NSArray*)negatrons;
 -(NSArray*)photons;
+
+-(NSDictionary*)contents;
 
 -(NSArray*)getDiscrete:(NSString*)fileName nParticles:(NSUInteger)n startPoint:(NSUInteger)s; 
 -(NSArray*)getContinuous:(NSString*)fileName nParticles:(NSUInteger)n startPoint:(NSUInteger)s; 

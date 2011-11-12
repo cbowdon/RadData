@@ -10,6 +10,11 @@
 
 @implementation Progeny
 
-@synthesize name = _name, isotope = _isotope, probability = _probability;
+@synthesize name = _name, isotope = _isotope, probability = _probability, stringValue = _stringValue;
+
+-(NSString*)stringValue
+{
+	return [NSString stringWithFormat:@"%.3f%c\t %@", 100*[self.probability doubleValue], '%', self.name];
+}
 
 @end

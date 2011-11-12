@@ -10,7 +10,7 @@
 
 @implementation DiscreteParticle
 
-@synthesize probability = _probability, energy = _energy;
+@synthesize probability = _probability, energy = _energy, stringValue = _stringValue;
 
 -(id)initWithProbability:(NSNumber *)prob andEnergy:(NSNumber *)en
 {
@@ -20,6 +20,11 @@
 		_energy = en;		
 	}
     return self;	
+}
+
+-(NSString*)stringValue
+{
+	return [NSString stringWithFormat:@"%.3f%c\t %.3f MeV", [self.probability doubleValue], '%', [self.energy doubleValue]];
 }
 
 @end

@@ -11,11 +11,14 @@
 @interface DiscreteParticle : NSObject {
 	NSNumber *probability;
 	NSNumber *energy;
+	NSString *_stringValue;
 }
 
-@property (readonly, strong) NSNumber* probability;
-@property (readonly, strong) NSNumber* energy;
+@property (readonly, strong) NSNumber *probability;
+@property (readonly, strong) NSNumber *energy;
+@property (readonly, strong) NSString *stringValue;
 
 -(id)initWithProbability:(NSNumber*)prob andEnergy:(NSNumber*)en;
+-(NSString*)stringValue;
 
 @end

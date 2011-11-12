@@ -10,7 +10,7 @@
 
 @implementation ContinuousParticle
 
-@synthesize probability = _probability, energy = _energy, maxEnergy = _maxEnergy;
+@synthesize probability = _probability, energy = _energy, maxEnergy = _maxEnergy, stringValue = _stringValue;
 
 -(id)initWithProbability:(NSNumber *)prob energy:(NSNumber *)en andMaxEnergy:(NSNumber *)maxEn
 {
@@ -21,6 +21,11 @@
 		_maxEnergy = maxEn;
 	}
     return self;	
+}
+
+-(NSString*)stringValue
+{
+	return [NSString stringWithFormat:@"%.3f%c\t %.3f MeV (max)\t [%.3f MeV (avg)]", [self.probability doubleValue], '%', [self.maxEnergy doubleValue], [self.energy doubleValue]];
 }
 
 @end

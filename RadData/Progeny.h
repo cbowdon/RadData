@@ -13,10 +13,14 @@
 	NSString *name;
 	Radioisotope *isotope;
 	NSNumber *probability;
+	NSString *_stringValue;
 }
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, weak) Radioisotope *isotope;
 @property (nonatomic, strong) NSNumber *probability;
+@property (readonly, strong) NSString *stringValue;
+
+-(NSString*)stringValue;
 
 @end

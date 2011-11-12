@@ -19,18 +19,19 @@
 @synthesize nPositrons = _nPositrons, positronStart = _positronStart;
 @synthesize nNegatrons = _nNegatrons, negatronStart = _negatronStart;
 @synthesize nPhotons = _nPhotons, photonStart = _photonStart;
+@synthesize contents = _contents;
 
 -(NSArray*)progeny
 {	
 	if (_progeny) {
 		return _progeny;
 	} 
-
-//	NSString *folder = @"";
-//	NSString *fileName = @"PROGENY";
-//	NSString *extension = @"REC";
-//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
-//	fullPath = [fullPath stringByAppendingPathExtension:extension];
+	
+	//	NSString *folder = @"";
+	//	NSString *fileName = @"PROGENY";
+	//	NSString *extension = @"REC";
+	//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
+	//	fullPath = [fullPath stringByAppendingPathExtension:extension];
 	
 	NSString *fullPath = [[NSBundle mainBundle] pathForResource: @"PROGENY" ofType: @"REC"];
 	
@@ -41,7 +42,7 @@
 	}
 	
 	NSUInteger recordLength = 8;
-
+	
 	// make temporary mutable array for progeny
 	NSMutableArray *progs = [[NSMutableArray alloc] initWithCapacity:self.nProgeny];
 	
@@ -57,13 +58,13 @@
 		// remembering 1st->0th conversion
 		NSUInteger pos = [Extract shortAtIndex:0 ofData:buffer]-1;		
 		NSNumber *prob = [Extract real48AtIndex:2 ofData:buffer];
-			
+		
 		// make and fill in a Progeny
 		Progeny *prog = [[Progeny alloc] init];				
 		prog.isotope = [self.collection objectAtIndex:pos];
 		prog.name = [[NSString alloc] initWithString:prog.isotope.name];
 		prog.probability = prob;
-				
+		
 		// add to temp array
 		[progs addObject:prog];
 	}
@@ -112,15 +113,42 @@
 	return _photons;
 }
 
+-(NSDictionary*)contents
+{
+	if (!_contents) {
+		NSMutableDictionary *mut = [[NSMutableDictionary alloc] init];
+		if (self.nProgeny > 0) {
+			[mut setValue:self.progeny forKey:@"Progeny"];
+		}
+		if (self.nAlphas > 0) {
+			[mut setValue:self.alphas forKey:@"Alphas"];
+		}
+		if (self.nBetas > 0) {
+			[mut setValue:self.betas forKey:@"Betas"];
+		}
+		if (self.nPositrons > 0){
+			[mut setValue:self.positrons forKey:@"Positrons"];	
+		}
+		if (self.nNegatrons > 0) {
+			[mut setValue:self.negatrons forKey:@"Negatrons"];
+		} 
+		if (self.nPhotons > 0) {
+			[mut setValue:self.photons forKey:@"Photons"];	
+		}		
+		_contents = [[NSDictionary alloc] initWithDictionary:mut];
+	}
+	return _contents;
+}
+
 -(NSArray*)getDiscrete:(NSString *)fileName nParticles:(NSUInteger)n startPoint:(NSUInteger)s {
 	
-//	NSString *folder = @"";
-//	NSString *extension = @"REC";
-//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
-//	fullPath = [fullPath stringByAppendingPathExtension:extension];
+	//	NSString *folder = @"";
+	//	NSString *extension = @"REC";
+	//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
+	//	fullPath = [fullPath stringByAppendingPathExtension:extension];
 	
 	NSString *fullPath = [[NSBundle mainBundle] pathForResource:fileName ofType: @"REC"];
-
+	
 	
 	NSFileHandle *file = [NSFileHandle fileHandleForReadingAtPath:fullPath];
 	
@@ -157,14 +185,14 @@
 }
 
 -(NSArray*)getContinuous:(NSString *)fileName nParticles:(NSUInteger)n startPoint:(NSUInteger)s {
-
-//	NSString *folder = @"";
-//	NSString *extension = @"REC";
-//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
-//	fullPath = [fullPath stringByAppendingPathExtension:extension];
+	
+	//	NSString *folder = @"";
+	//	NSString *extension = @"REC";
+	//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
+	//	fullPath = [fullPath stringByAppendingPathExtension:extension];
 	
 	NSString *fullPath = [[NSBundle mainBundle] pathForResource:fileName ofType: @"REC"];
-
+	
 	NSFileHandle *file = [NSFileHandle fileHandleForReadingAtPath:fullPath];
 	
 	if (file == nil) {
