@@ -16,7 +16,6 @@
 
 @property (nonatomic, strong) NSArray *isotopes;
 
--(NSUInteger)numberOfIsotopes;
 -(NSArray*)loadIsotopes;
 -(Radioisotope*)extractIsotopeAtIndex:(NSUInteger)index ofRecords:(NSData*)data;
 -(NSArray*)findIsotopeWithName:(NSString*)name;

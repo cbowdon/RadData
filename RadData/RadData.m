@@ -30,11 +30,6 @@
     return self;
 }
 
--(NSUInteger)numberOfIsotopes 
-{
-	return [self.isotopes count];
-}
-
 -(NSArray*)loadIsotopes 
 {	
 	NSString *folder = @"";
