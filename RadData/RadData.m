@@ -141,9 +141,7 @@
 	
 	// check for an exact match
 	if ([symbolProper evaluateWithObject:name] == YES) {
-		
-		NSLog(@"\n\t%@\t%@\n", name, @"symbolProper");
-		
+				
 		match = [NSPredicate predicateWithFormat:@"name == %@", name];
 		filteredArray =	[self.isotopes filteredArrayUsingPredicate:match];
 		if ([filteredArray count] == 1) {
@@ -171,16 +169,12 @@
 	// or an exact match where they wrote it backwards	
 	if ([symbolShort evaluateWithObject:name] == YES ||
 		[symbolBackwards evaluateWithObject:name] == YES) {
-		
-		NSLog(@"\n\t%@\t%@\n", name, @"symbolShort");		
-		
+				
 		NSString *shortMatchExpr = [NSString stringWithFormat:@"%@*%@", letterString, numberString];
 		
 		match = [NSPredicate predicateWithFormat:@"name like %@", shortMatchExpr];		
 		symbolShortArray = [self.isotopes filteredArrayUsingPredicate:match];
-		
-		NSLog(@"%@\t%@\t%i\n", name, @"symbolShort", [symbolShortArray count]);		
-		
+				
 		if ([symbolShortArray count] == 1) {
 			return symbolShortArray;
 		}
@@ -190,9 +184,7 @@
 
 	
 	if ([symbolLetters evaluateWithObject:name] == YES) {		
-		
-		NSLog(@"\n\t%@\t%@\n", name, @"symbolLetters");
-		
+				
 		NSString *letterMatchExpr = [NSString stringWithFormat:@"%@*", letterString];
 		match = [NSPredicate predicateWithFormat:@"name like %@", letterMatchExpr];		
 		symbolLettersArray = [self.isotopes filteredArrayUsingPredicate:match];
@@ -201,16 +193,13 @@
 
 	
 	if ([symbolNumbers evaluateWithObject:name] == YES) {
-		
-		NSLog(@"\n\t%@\t%@\n", name, @"symbolNumbers");
-		
+				
 		match = [NSPredicate predicateWithFormat:@"mass == %i", [numberString integerValue]];							
 		symbolNumbersArray = [self.isotopes filteredArrayUsingPredicate:match];
 	}
 	[joinedResults addObjectsFromArray:symbolNumbersArray];
 
 	if ([oneLetter evaluateWithObject:name] == YES && [joinedResults count] == 0) {
-		NSLog(@"\n\t%@\t%@\n", name, @"oneLetter");
 		
 		NSString *charMatchExpr = [NSString stringWithFormat:@"%c*", [[name capitalizedString] characterAtIndex:0]];
 		match = [NSPredicate predicateWithFormat:@"name like %@", charMatchExpr];
