@@ -122,71 +122,104 @@
 }
 
 -(NSArray*)findIsotopeWithName:(NSString *)name {
-
+	
 	NSPredicate *symbolProper = [NSPredicate predicateWithFormat:@"SELF MATCHES '[A-Za-z]{1,2}-[0-9]{1,3}'"];
 	NSPredicate *symbolShort = [NSPredicate predicateWithFormat:@"SELF MATCHES '[A-Za-z]{1,2}[0-9]{1,3}'"];
+	NSPredicate *symbolBackwards = [NSPredicate predicateWithFormat:@"SELF MATCHES '[0-9]{1,3}[A-Za-z]{1,2}'"];
 	NSPredicate *symbolLetters = [NSPredicate predicateWithFormat:@"SELF MATCHES '[A-Za-z]{1,2}'"];
-	NSPredicate *symbolNumbers = [NSPredicate predicateWithFormat:@"SELF MATCHES '[0-9]{1,3}'"];
-
+	NSPredicate *symbolNumbers = [NSPredicate predicateWithFormat:@"SELF MATCHES '.*[0-9]{1,3}.*'"];
+	NSPredicate *oneLetter = [NSPredicate predicateWithFormat:@"SELF MATCHES '[A-Za-z]+'"];
+	
+	
 	NSArray *filteredArray; 
+	NSArray *symbolShortArray;
+	NSArray *symbolLettersArray;
+	NSArray *symbolNumbersArray;
+	NSArray *oneLetterArray;
 	NSPredicate *match;
-	NSString *numberString;
-		
+	
+	
+	// check for an exact match
 	if ([symbolProper evaluateWithObject:name] == YES) {
+		
+		NSLog(@"\n\t%@\t%@\n", name, @"symbolProper");
 		
 		match = [NSPredicate predicateWithFormat:@"name == %@", name];
 		filteredArray =	[self.isotopes filteredArrayUsingPredicate:match];
 		if ([filteredArray count] == 1) {
 			return filteredArray;
 		}
-	} else if ([symbolShort evaluateWithObject:name] == YES) {
+	}
+	NSMutableArray *joinedResults = [[NSMutableArray alloc] initWithArray:filteredArray];
 
-		NSScanner *scanner = [NSScanner scannerWithString:name];
-		NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+	
+	// extract numbers
+	NSString *numberString;
+	NSScanner *numberScanner = [NSScanner scannerWithString:name];
+	NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+	[numberScanner scanUpToCharactersFromSet:numbers intoString:NULL];
+	[numberScanner scanCharactersFromSet:numbers intoString:&numberString];
+	
+	// extract letters
+	NSString *letterString;
+	NSScanner *letterScanner =[NSScanner scannerWithString:name];
+	NSCharacterSet *letters = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
+	[letterScanner scanUpToCharactersFromSet:letters intoString:NULL];
+	[letterScanner scanCharactersFromSet:letters intoString:&letterString];
+	
+	// check for an exact match where they left out the hyphen
+	// or an exact match where they wrote it backwards	
+	if ([symbolShort evaluateWithObject:name] == YES ||
+		[symbolBackwards evaluateWithObject:name] == YES) {
 		
-		// Throw away characters before the first number.
-		[scanner scanUpToCharactersFromSet:numbers intoString:&numberString];
+		NSLog(@"\n\t%@\t%@\n", name, @"symbolShort");		
 		
-		// Collect numbers.
-		[scanner scanCharactersFromSet:numbers intoString:&numberString];
-		
-		NSString *shortMatchExpr = [NSString stringWithFormat:@"%c*%@", [[name capitalizedString] characterAtIndex:0], numberString];
+		NSString *shortMatchExpr = [NSString stringWithFormat:@"%@*%@", letterString, numberString];
 		
 		match = [NSPredicate predicateWithFormat:@"name like %@", shortMatchExpr];		
-		filteredArray =	[self.isotopes filteredArrayUsingPredicate:match];
-		if ([filteredArray count] > 0) {
-			return filteredArray;
-		}
+		symbolShortArray = [self.isotopes filteredArrayUsingPredicate:match];
 		
-	} else if ([symbolLetters evaluateWithObject:name] == YES) {		
+		NSLog(@"%@\t%@\t%i\n", name, @"symbolShort", [symbolShortArray count]);		
+		
+		if ([symbolShortArray count] == 1) {
+			return symbolShortArray;
+		}
+	} 
 
-		NSString *letterMatchExpr = [NSString stringWithFormat:@"%c*", [[name capitalizedString] characterAtIndex:0]];
+	[joinedResults addObjectsFromArray:symbolShortArray];
+
+	
+	if ([symbolLetters evaluateWithObject:name] == YES) {		
+		
+		NSLog(@"\n\t%@\t%@\n", name, @"symbolLetters");
+		
+		NSString *letterMatchExpr = [NSString stringWithFormat:@"%@*", letterString];
 		match = [NSPredicate predicateWithFormat:@"name like %@", letterMatchExpr];		
-		filteredArray =	[self.isotopes filteredArrayUsingPredicate:match];
-		if ([filteredArray count] > 0) {
-			return filteredArray;
-		}		
-	} else if ([symbolNumbers evaluateWithObject:name] == YES) {
-
-		NSScanner *scanner = [NSScanner scannerWithString:name];
-		NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
-		
-		// Throw away characters before the first number.
-		[scanner scanUpToCharactersFromSet:numbers intoString:NULL];
-		
-		// Collect numbers.
-		[scanner scanCharactersFromSet:numbers intoString:&numberString];
-		
-		NSString *numberMatchExpr = [NSString stringWithFormat:@"*%@*", numberString];
-		match = [NSPredicate predicateWithFormat:@"name like %@", numberMatchExpr];							
-		filteredArray =	[self.isotopes filteredArrayUsingPredicate:match];
-		if ([filteredArray count] > 0) {
-			return filteredArray;
-		}
+		symbolLettersArray = [self.isotopes filteredArrayUsingPredicate:match];
 	}
-		
-	return nil;
+	[joinedResults addObjectsFromArray:symbolLettersArray];
 
+	
+	if ([symbolNumbers evaluateWithObject:name] == YES) {
+		
+		NSLog(@"\n\t%@\t%@\n", name, @"symbolNumbers");
+		
+		match = [NSPredicate predicateWithFormat:@"mass == %i", [numberString integerValue]];							
+		symbolNumbersArray = [self.isotopes filteredArrayUsingPredicate:match];
+	}
+	[joinedResults addObjectsFromArray:symbolNumbersArray];
+
+	if ([oneLetter evaluateWithObject:name] == YES && [joinedResults count] == 0) {
+		NSLog(@"\n\t%@\t%@\n", name, @"oneLetter");
+		
+		NSString *charMatchExpr = [NSString stringWithFormat:@"%c*", [[name capitalizedString] characterAtIndex:0]];
+		match = [NSPredicate predicateWithFormat:@"name like %@", charMatchExpr];
+		oneLetterArray = [self.isotopes filteredArrayUsingPredicate:match];		
+	}
+	[joinedResults addObjectsFromArray:oneLetterArray];
+	
+	return joinedResults;
+	
 }
 
 @end

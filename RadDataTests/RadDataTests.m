@@ -184,11 +184,21 @@
 	results = [rad findIsotopeWithName:@"z"];
 	STAssertEquals([results count], (uint)10, @"10 isotopes with z in name");
 	
+	results = [rad findIsotopeWithName:@"Co"];
+	STAssertEquals([results count], (uint)7, @"7 isotopes of cobalt");
+	int i;
+	for (i = 0; i < [results count]; i++) {
+		NSLog(@"%@\n", [[results objectAtIndex:i] name]);
+	}
+	
 	results = [rad findIsotopeWithName:@"241"];
 	STAssertEquals([results count], (uint)2, @"Am-241 and Pu-241");
 	
 	results = [rad findIsotopeWithName:@"137"];
 	STAssertEquals([results count], (uint)3, @"Cs-137, Ba-137m and Xe-137");
+	
+	results = [rad findIsotopeWithName:@"137Cs"];
+	STAssertEquals([results count], (uint)1, @"137Cs");
 }
 
 @end
