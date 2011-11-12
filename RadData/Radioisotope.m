@@ -26,11 +26,13 @@
 		return _progeny;
 	} 
 
-	NSString *folder = @"";
-	NSString *fileName = @"PROGENY";
-	NSString *extension = @"REC";
-	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
-	fullPath = [fullPath stringByAppendingPathExtension:extension];
+//	NSString *folder = @"";
+//	NSString *fileName = @"PROGENY";
+//	NSString *extension = @"REC";
+//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
+//	fullPath = [fullPath stringByAppendingPathExtension:extension];
+	
+	NSString *fullPath = [[NSBundle mainBundle] pathForResource: @"PROGENY" ofType: @"REC"];
 	
 	NSFileHandle *file = [NSFileHandle fileHandleForReadingAtPath:fullPath];
 	
@@ -112,10 +114,13 @@
 
 -(NSArray*)getDiscrete:(NSString *)fileName nParticles:(NSUInteger)n startPoint:(NSUInteger)s {
 	
-	NSString *folder = @"";
-	NSString *extension = @"REC";
-	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
-	fullPath = [fullPath stringByAppendingPathExtension:extension];
+//	NSString *folder = @"";
+//	NSString *extension = @"REC";
+//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
+//	fullPath = [fullPath stringByAppendingPathExtension:extension];
+	
+	NSString *fullPath = [[NSBundle mainBundle] pathForResource:fileName ofType: @"REC"];
+
 	
 	NSFileHandle *file = [NSFileHandle fileHandleForReadingAtPath:fullPath];
 	
@@ -153,11 +158,13 @@
 
 -(NSArray*)getContinuous:(NSString *)fileName nParticles:(NSUInteger)n startPoint:(NSUInteger)s {
 
-	NSString *folder = @"";
-	NSString *extension = @"REC";
-	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
-	fullPath = [fullPath stringByAppendingPathExtension:extension];
+//	NSString *folder = @"";
+//	NSString *extension = @"REC";
+//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
+//	fullPath = [fullPath stringByAppendingPathExtension:extension];
 	
+	NSString *fullPath = [[NSBundle mainBundle] pathForResource:fileName ofType: @"REC"];
+
 	NSFileHandle *file = [NSFileHandle fileHandleForReadingAtPath:fullPath];
 	
 	if (file == nil) {

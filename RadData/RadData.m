@@ -32,13 +32,20 @@
 
 -(NSArray*)loadIsotopes 
 {	
-	NSString *folder = @"";
-	NSString *fileName = @"NUCLIDES";
-	NSString *extension = @"REC";
-	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
-	fullPath = [fullPath stringByAppendingPathExtension:extension];
+
+//	NSString *folder = @"";
+//	NSString *fileName = @"NUCLIDES";
+//	NSString *extension = @"REC";
+//	NSString *fullPath = [folder stringByAppendingPathComponent:fileName];
+//	fullPath = [fullPath stringByAppendingPathExtension:extension];
+//	
+	NSString *fullPath = [[NSBundle mainBundle] pathForResource: @"NUCLIDES" ofType: @"REC"];
 	
 	NSData *contents = [NSData dataWithContentsOfFile:fullPath];
+	if ([contents length] == 0) {
+		NSLog(@"\n\nFailed to read %@\n\n", fullPath);
+		return [[NSArray alloc] init];
+	}
 	NSMutableArray *topes = [NSMutableArray arrayWithCapacity:(uint)497];
 	
 	NSUInteger i;

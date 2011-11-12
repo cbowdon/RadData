@@ -11,7 +11,7 @@
 #import "Radioisotope.h"
 
 @interface RadData : NSObject {
-	NSArray *isotopes;
+	NSArray *_isotopes;
 }
 
 @property (nonatomic, strong) NSArray *isotopes;
