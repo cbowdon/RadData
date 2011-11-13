@@ -50,6 +50,8 @@
 	NSDictionary *_contents;
 }
 
+@property NSInteger sectionNumber;
+
 @property (nonatomic, weak) NSArray *collection;
 
 @property (nonatomic, strong) NSString *name;

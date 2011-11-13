@@ -11,6 +11,7 @@
 
 @implementation Radioisotope
 
+@synthesize sectionNumber;
 @synthesize collection = _collection;
 @synthesize name = _name, atomicNumber = _atomicNumber, mass = _mass;
 @synthesize halfLifeNumber = _halfLifeNumber, halfLifeUnit = _halfLifeUnit, halfLifeString = _halfLifeString;
@@ -139,7 +140,7 @@
 	if (!_contents) {
 		NSMutableDictionary *mut = [[NSMutableDictionary alloc] init];
 		if (self.nProgeny > 0) {
-			[mut setValue:self.progeny forKey:@"Progeny"];
+			[mut setValue:[self.progeny sortedArrayUsingSelector:@selector(name)] forKey:@"Progeny"];
 		}
 		if (self.nAlphas > 0) {
 			[mut setValue:self.alphas forKey:@"Alphas"];
