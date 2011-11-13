@@ -12,7 +12,8 @@
 @implementation Radioisotope
 
 @synthesize collection = _collection;
-@synthesize name = _name, atomicNumber = _atomicNumber, mass = _mass, halfLifeNumber = _halfLifeNumber, halfLifeUnit = _halfLifeUnit;
+@synthesize name = _name, atomicNumber = _atomicNumber, mass = _mass;
+@synthesize halfLifeNumber = _halfLifeNumber, halfLifeUnit = _halfLifeUnit, halfLifeString = _halfLifeString;
 @synthesize nProgeny = _nProgeny, progenyStart = _progenyStart;
 @synthesize nAlphas = _nAlphas, alphaStart = _alphaStart;
 @synthesize	nBetas = _nBetas, betaStart = _betaStart;
@@ -20,6 +21,26 @@
 @synthesize nNegatrons = _nNegatrons, negatronStart = _negatronStart;
 @synthesize nPhotons = _nPhotons, photonStart = _photonStart;
 @synthesize contents = _contents;
+
+-(NSString*)halfLifeString
+{
+	if (!_halfLifeString) {
+		NSString *longUnit;
+		if ([self.halfLifeUnit isEqualToString:@"S"]) {
+			longUnit = @"seconds";
+		} else if ([self.halfLifeUnit isEqualToString:@"M"]) {
+			longUnit = @"minutes";
+		} else if ([self.halfLifeUnit isEqualToString:@"H"]) {
+			longUnit = @"hours";
+		} else if ([self.halfLifeUnit isEqualToString:@"D"]) {
+			longUnit = @"days";
+		} else if ([self.halfLifeUnit isEqualToString:@"Y"]) {
+			longUnit = @"years";
+		}
+		_halfLifeString = [NSString stringWithFormat:@"%.3f %@", [self.halfLifeNumber doubleValue], longUnit];
+	}
+	return _halfLifeString;
+}
 
 -(NSArray*)progeny
 {	

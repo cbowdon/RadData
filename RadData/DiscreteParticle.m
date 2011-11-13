@@ -24,7 +24,7 @@
 
 -(NSString*)stringValue
 {
-	return [NSString stringWithFormat:@"%.3f%c\t %.3f MeV", [self.probability doubleValue], '%', [self.energy doubleValue]];
+	return [NSString stringWithFormat:@"%.3f MeV", [self.energy doubleValue]];
 }
 
 @end

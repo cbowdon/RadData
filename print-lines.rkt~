@@ -1,6 +1,6 @@
 #lang racket
 
-(define in-file "/Users/chris/Desktop/temp.txt")
+(define in-file "temp.txt")
 
 (define (find-line nuclide filename)
   (let ([input (open-input-file filename)])
@@ -11,5 +11,5 @@
               [else (counter (+ i 1))])))
     (counter 0)))
 
-(find-line "Sr-90" in-file)
+(find-line "Xe-123" in-file)
 

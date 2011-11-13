@@ -14,7 +14,7 @@
 
 -(NSString*)stringValue
 {
-	return [NSString stringWithFormat:@"%.3f%c\t %@", 100*[self.probability doubleValue], '%', self.name];
+	return [NSString stringWithFormat:@"%@", self.name];
 }
 
 @end

@@ -21,6 +21,7 @@
 	
 	NSNumber *halfLifeNumber;
 	NSString *halfLifeUnit;
+	NSString *_halfLifeString;
 
 	NSUInteger nProgeny;
 	NSUInteger progenyStart;
@@ -56,6 +57,7 @@
 @property NSUInteger atomicNumber;
 @property (nonatomic, strong) NSNumber *halfLifeNumber;
 @property (nonatomic, strong) NSString *halfLifeUnit;
+@property (readonly, strong) NSString *halfLifeString;
 
 @property NSUInteger nProgeny;
 @property NSUInteger progenyStart;

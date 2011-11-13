@@ -209,8 +209,7 @@
 	}
 	[joinedResults addObjectsFromArray:oneLetterArray];
 	
-	return joinedResults;
-	
+	return joinedResults;	
 }
 
 @end
