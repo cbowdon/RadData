@@ -25,7 +25,7 @@
 
 -(NSString*)stringValue
 {
-	return [NSString stringWithFormat:@"%.3f MeV max\t %.3f MeV avg", [self.maxEnergy doubleValue], [self.energy doubleValue]];
+	return [NSString stringWithFormat:@"%.3f MeV (%.3f MeV max)", [self.energy doubleValue], [self.maxEnergy doubleValue]];
 }
 
 @end
